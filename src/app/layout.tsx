@@ -11,6 +11,11 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   title: "Castpotro - Talent Acquisition",
   description: "Join the Castpotro global community.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
