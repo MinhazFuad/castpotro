@@ -1,0 +1,29 @@
+function doPost(e) {
+      try {
+        var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        var data = JSON.parse(e.postData.contents);
+        
+        // Explicit English Date format (MM/DD/YYYY, HH:MM:SS AM/PM)
+        var dateStr = data.submittedAt || Utilities.formatDate(new Date(), Session.getScriptTimeZone() || "GMT+6", "MM/dd/yyyy, hh:mm:ss a");
+    
+        sheet.appendRow([
+          dateStr,
+          data.candidateInfo ? data.candidateInfo.name : '',
+          data.candidateInfo ? data.candidateInfo.email : '',
+          data.candidateInfo ? data.candidateInfo.department : '',
+          data.totalPercentage ? Math.round(data.totalPercentage) : '',
+          data.domainScores ? (data.domainScores.Numerical || 0) : 0,
+          data.domainScores ? (data.domainScores.Verbal || 0) : 0,
+          data.domainScores ? (data.domainScores.Logical || 0) : 0,
+          data.domainScores ? (data.domainScores.Spatial || 0) : 0,
+          data.domainScores ? (data.domainScores['Emotional Intelligence'] || 0) : 0,
+          data.dominantTrait || ''
+        ]);
+        
+        return ContentService.createTextOutput(JSON.stringify({ "result": "success" }))
+          .setMimeType(ContentService.MimeType.JSON);
+      } catch (error) {
+        return ContentService.createTextOutput(JSON.stringify({ "result": "error", "message": error.toString() }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
