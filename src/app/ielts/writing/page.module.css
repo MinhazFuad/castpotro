@@ -1,0 +1,340 @@
+.main {
+  min-height: 100vh;
+  background-color: var(--background-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backLink {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--foreground-muted);
+}
+
+.backLink:hover {
+  color: var(--primary);
+}
+
+.brandTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.timerPill {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  background-color: var(--primary-light);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+}
+
+.editorLayout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  flex: 1;
+  max-width: 1300px;
+}
+
+.promptPane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.taskTabs {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 0.75rem;
+  background-color: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--foreground-muted);
+  transition: all var(--transition-fast);
+}
+
+.tabActive {
+  background-color: var(--primary);
+  color: white !important;
+  border-color: var(--primary);
+}
+
+.promptCard {
+  background-color: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+.taskTypeBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  background-color: var(--primary-light);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.promptTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.promptBody {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 1.5rem;
+}
+
+.outlineBox {
+  background-color: #faf5ff;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.outlineBox h4 {
+  font-size: 0.9rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.outlineBox ul {
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.guidanceNotes {
+  font-size: 0.8rem;
+  color: var(--foreground-muted);
+  line-height: 1.4;
+}
+
+.writingPane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.editorToolbar {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordCounter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.statusBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.badgeSuccess {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.badgeWarning {
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+.essayTextarea {
+  width: 100%;
+  padding: 1.25rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #1e293b;
+  font-family: inherit;
+  resize: vertical;
+  background-color: #ffffff;
+  box-shadow: var(--card-shadow);
+}
+
+.essayTextarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.evaluateBtn {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.95rem;
+  border-radius: var(--radius);
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: 0 4px 14px var(--primary-shadow);
+  transition: all var(--transition-fast);
+}
+
+.evaluateBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.evalResultBox {
+  margin-top: 1rem;
+}
+
+.resultBanner {
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.bannerTag {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fef3c7;
+}
+
+.bandNum {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0.25rem 0;
+}
+
+.verdictText {
+  font-size: 0.95rem;
+  color: #fffbeb;
+  line-height: 1.5;
+}
+
+.subGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.subCard {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+}
+
+.subCat {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--foreground-muted);
+  margin-bottom: 0.2rem;
+}
+
+.subVal {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #d97706;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metaItem span {
+  font-size: 0.75rem;
+  color: var(--foreground-muted);
+}
+
+.metaItem strong {
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.editBtn {
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 900px) {
+  .editorLayout {
+    grid-template-columns: 1fr;
+  }
+}

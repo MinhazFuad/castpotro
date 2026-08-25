@@ -1,0 +1,488 @@
+.main {
+  min-height: 100vh;
+  background-color: var(--background-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backLink {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--foreground-muted);
+}
+
+.backLink:hover {
+  color: var(--primary);
+}
+
+.brandTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.audioPlayerCard {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.3);
+  border: 1px solid #334155;
+}
+
+.playerTop {
+  margin-bottom: 2rem;
+}
+
+.audioBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.liveAudioPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(14, 165, 233, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.4);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+}
+
+.pulseActive {
+  animation: pulseBlue 1.5s infinite;
+}
+
+@keyframes pulseBlue {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
+}
+
+.smartVoiceTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.playerTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.playerSub {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.controllerBox {
+  background-color: rgba(15, 23, 42, 0.7);
+  border: 1px solid #334155;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.playButtonWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mainPlayBtn {
+  width: 58px;
+  height: 58px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px var(--primary-shadow);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.mainPlayBtn:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.btnPlaying {
+  background-color: #ef4444;
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.4);
+}
+
+.equalizerWaves {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 24px;
+}
+
+.eqBar {
+  width: 4px;
+  height: 6px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  transition: height 0.2s ease;
+}
+
+.eqAnim1 { animation: wave 0.8s infinite ease-in-out; }
+.eqAnim2 { animation: wave 0.6s infinite ease-in-out 0.2s; }
+.eqAnim3 { animation: wave 0.9s infinite ease-in-out 0.1s; }
+.eqAnim4 { animation: wave 0.7s infinite ease-in-out 0.3s; }
+.eqAnim5 { animation: wave 0.85s infinite ease-in-out 0.15s; }
+
+@keyframes wave {
+  0%, 100% { height: 4px; }
+  50% { height: 24px; }
+}
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.timeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.trackStatus {
+  color: #c4b5fd;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.timeCurrent {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.seekBar {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.seekBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.speedControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.speedLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.speedBtn {
+  padding: 0.2rem 0.6rem;
+  background-color: #1e293b;
+  color: #cbd5e1;
+  border: 1px solid #334155;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.speedBtn:hover {
+  background-color: #334155;
+  color: white;
+}
+
+.speedBtnActive {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.instructionBanner {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.instructionBanner span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.instructionBanner p {
+  font-size: 0.95rem;
+  color: #334155;
+  margin-top: 0.25rem;
+}
+
+.questionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.questionCard {
+  background-color: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--card-shadow);
+}
+
+.correctCard {
+  border-color: #10b981;
+  background-color: #f0fdf4;
+}
+
+.incorrectCard {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.qNum {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.qText {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.optionsGrid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.optionLabel:hover {
+  background-color: #faf5ff;
+  border-color: var(--primary);
+}
+
+.selectedOpt {
+  background-color: #f5f3ff !important;
+  border-color: var(--primary) !important;
+}
+
+.radioInput {
+  accent-color: var(--primary);
+  width: 18px;
+  height: 18px;
+}
+
+.optLetter {
+  font-weight: 800;
+  color: var(--primary-dark);
+  font-size: 0.95rem;
+}
+
+.optText {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.explanationBox {
+  margin-top: 1rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 1rem;
+}
+
+.expHeader {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.expText {
+  font-size: 0.85rem;
+  color: var(--foreground-muted);
+  line-height: 1.5;
+}
+
+.submitRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.submitBtn {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.9rem 2.25rem;
+  border-radius: var(--radius);
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: 0 4px 14px var(--primary-shadow);
+  transition: all var(--transition-fast);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.scoreContainer {
+  margin-bottom: 4rem;
+}
+
+.scoreBanner {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.scoreTag {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #bae6fd;
+}
+
+.bandNum {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0.5rem 0;
+}
+
+.scoreDetail {
+  font-size: 1rem;
+  color: #f0f9ff;
+}
+
+.resultActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.transcriptBtn {
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+}
+
+.primaryBtn {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.transcriptView {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.transcriptView h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.transcriptText {
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #334155;
+  font-family: inherit;
+}

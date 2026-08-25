@@ -5,12 +5,13 @@ import "./globals.css";
 const nunito = Nunito({
   subsets: ["latin"],
   variable: "--font-nunito",
-  weight: ['400', '600', '700', '800']
+  weight: ['400', '600', '700', '800', '900']
 });
 
 export const metadata: Metadata = {
-  title: "Castpotro - Talent Acquisition",
-  description: "Join the Castpotro global community.",
+  title: "Castpotro - Global Digital Radio, Youth Community & Growth Network",
+  description: "Castpotro is an international digital radio network and personal growth community empowering youth through podcasts, cultural exchange, Chatter Box speaking circles, and career incubation.",
+  keywords: ["Castpotro", "Digital Radio", "Podcasts", "Youth Community", "Chatter Box", "Bookverse", "Aptitude Assessment", "Internship Program"],
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",

@@ -1,0 +1,187 @@
+.section {
+  padding: 5.5rem 0;
+  background-color: var(--background-secondary);
+}
+
+.headerBlock {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+.roadmapGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.stepCard {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.stepCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.activeStepCard {
+  border: 2px solid var(--primary);
+  background: linear-gradient(180deg, #ffffff 0%, #faf5ff 100%);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+}
+
+.stepTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.stepNum {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.stepIcon {
+  font-size: 1.5rem;
+  background-color: var(--primary-light);
+  padding: 0.35rem;
+  border-radius: var(--radius-sm);
+}
+
+.stepBadge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.stepTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+}
+
+.stepDesc {
+  font-size: 0.85rem;
+  color: var(--foreground-muted);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.stepActionWrapper {
+  margin-top: auto;
+}
+
+.takeTestBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 800;
+  transition: background-color var(--transition-fast);
+}
+
+.takeTestBtn:hover {
+  background-color: var(--primary-hover);
+}
+
+.arrowIcon {
+  font-weight: bold;
+}
+
+.ctaBanner {
+  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  color: white;
+  box-shadow: 0 16px 36px rgba(109, 40, 217, 0.25);
+}
+
+.ctaBannerContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bannerTag {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bannerTitle {
+  font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.bannerText {
+  font-size: 1.05rem;
+  color: #ede9fe;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.bannerActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.bannerBtn {
+  background-color: #ffffff;
+  color: #6d28d9;
+  padding: 0.95rem 2.25rem;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.bannerBtn:hover {
+  transform: translateY(-2px);
+  background-color: #faf5ff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.bannerNotice {
+  font-size: 0.8rem;
+  color: #c4b5fd;
+  font-weight: 600;
+}
