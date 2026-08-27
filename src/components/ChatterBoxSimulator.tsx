@@ -1,21 +1,21 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { playPopSound, playSwooshSound, playChimeSound, playBuzzerSound } from '@/lib/sound';
 import styles from './ChatterBoxSimulator.module.css';
 
 const sampleTopics = [
-  "If you had the power to make one global rule for all humans, what would it be and why?",
+  "If you had the power to establish one global rule for all humans, what would it be and why?",
   "What is the single most valuable lesson you learned from a personal failure?",
-  "Is artificial intelligence bringing people closer together or isolating us more?",
+  "Is artificial intelligence bringing human culture closer together or isolating us more?",
   "If you could travel back in time for exactly 24 hours, which historical era would you visit?",
-  "Why is emotional intelligence often more crucial for leadership than technical genius?",
-  "What is one habit that completely changed your daily productivity and mindset?",
+  "Why is emotional intelligence often more crucial for leadership than technical expertise?",
+  "What is one daily habit that completely transformed your focus and productivity?",
   "If your life were a podcast title, what would today's episode be called?",
-  "How can community storytelling change the way we understand different cultures?",
-  "What book or movie has had the deepest philosophical impact on your worldview?",
-  "What advice would you give to your 14-year-old self about facing self-doubt?"
+  "How can authentic storytelling break down cultural misunderstandings across continents?",
+  "What book or film has had the deepest philosophical influence on your decisions?",
+  "What advice would you give to your 14-year-old self about overcoming self-doubt?"
 ];
 
 export default function ChatterBoxSimulator() {
@@ -74,16 +74,16 @@ export default function ChatterBoxSimulator() {
           <div className={styles.cardHeader}>
             <div className={styles.badgeWrapper}>
               <span className={styles.liveDot}></span>
-              <span className={styles.badgeText}>Live Interactive Simulation</span>
+              <span className={styles.badgeText}>[ 60-SECOND DRILL ]</span>
             </div>
-            <h2 className={styles.title}>Try the 60-Second Chatter Box Challenge</h2>
+            <h2 className={styles.title}>Chatter Box Impromptu Simulator</h2>
             <p className={styles.subtitle}>
-              Experience Castpotro's signature impromptu speaking drill right now! Spin a random topic, hit start, and practice speaking fearlessly for 1 minute.
+              Practice Castpotro's signature impromptu speaking drill. Shuffle a random unannounced prompt, hit start, and speak fearlessly for 60 seconds.
             </p>
           </div>
 
           <div className={styles.topicBox}>
-            <div className={styles.topicLabel}>Current Speaking Prompt #{topicIndex + 1}</div>
+            <div className={styles.topicLabel}>PROMPT № 0{topicIndex + 1} // SPEAKING DRILL</div>
             <motion.div 
               key={topicIndex}
               initial={{ opacity: 0, y: 10 }}
@@ -94,7 +94,7 @@ export default function ChatterBoxSimulator() {
             </motion.div>
 
             <button onClick={handleNextTopic} className={styles.shuffleBtn}>
-              <span>🎲 Spin Another Topic</span>
+              <span>🎲 Shuffle Prompt</span>
             </button>
           </div>
 
@@ -102,16 +102,16 @@ export default function ChatterBoxSimulator() {
           <div className={styles.timerWrapper}>
             <div className={`${styles.timerCircle} ${secondsLeft <= 10 && timerActive ? styles.timerWarning : ''}`}>
               <div className={styles.timerNumber}>{secondsLeft}</div>
-              <div className={styles.timerUnit}>seconds</div>
+              <div className={styles.timerUnit}>SECONDS</div>
               <svg className={styles.circleSvg} viewBox="0 0 100 100">
-                <circle className={styles.circleBg} cx="50" cy="50" r="45" />
+                <circle className={styles.circleBg} cx="50" cy="50" r="44" />
                 <circle 
                   className={styles.circleProgress} 
                   cx="50" 
                   cy="50" 
-                  r="45" 
-                  strokeDasharray="283"
-                  strokeDashoffset={283 - (283 * progress) / 100}
+                  r="44" 
+                  strokeDasharray="276"
+                  strokeDashoffset={276 - (276 * progress) / 100}
                 />
               </svg>
             </div>
@@ -119,11 +119,11 @@ export default function ChatterBoxSimulator() {
             <div className={styles.controlsRow}>
               {!timerActive ? (
                 <button onClick={handleStartTimer} className={styles.startBtn}>
-                  {secondsLeft < 60 && !completed ? '▶ Resume Speaking' : '🎙️ Start 60s Speaking Drill'}
+                  {secondsLeft < 60 && !completed ? '▶ Resume Drill' : '🎙️ Start 60s Turn'}
                 </button>
               ) : (
                 <button onClick={handlePauseTimer} className={styles.pauseBtn}>
-                  ⏸ Pause
+                  ⏸ Pause Timer
                 </button>
               )}
               
@@ -138,21 +138,21 @@ export default function ChatterBoxSimulator() {
                 animate={{ scale: 1, opacity: 1 }}
                 className={styles.celebrationBanner}
               >
-                🎉 <strong>Great job!</strong> You completed 60 seconds of impromptu speaking! Join our live Discord circles to do this with fellow international members every week.
+                🎉 <strong>60 Seconds Completed!</strong> Excellent discipline. Join our live weekly Discord circles to do this with fellow international broadcasters!
               </motion.div>
             )}
 
             <div className={styles.guidanceTips}>
               <div className={styles.tipItem}>
                 <span className={styles.tipTime}>00-10s</span>
-                <span className={styles.tipText}>Hook & Main Stance</span>
+                <span className={styles.tipText}>Hook & Stance</span>
               </div>
-              <div className={styles.tipDivider}>→</div>
+              <div className={styles.tipDivider}>//</div>
               <div className={styles.tipItem}>
                 <span className={styles.tipTime}>10-45s</span>
-                <span className={styles.tipText}>Personal Story / Example</span>
+                <span className={styles.tipText}>Anecdote / Example</span>
               </div>
-              <div className={styles.tipDivider}>→</div>
+              <div className={styles.tipDivider}>//</div>
               <div className={styles.tipItem}>
                 <span className={styles.tipTime}>45-60s</span>
                 <span className={styles.tipText}>Punchy Takeaway</span>

@@ -1,6 +1,7 @@
 .section {
   padding: 5.5rem 0;
-  background-color: #ffffff;
+  background-color: var(--bg);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .headerBlock {
@@ -18,9 +19,10 @@
 }
 
 .colHeading {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--ink);
   margin-bottom: 1.5rem;
 }
 
@@ -31,16 +33,22 @@
 }
 
 .episodeCard {
-  background-color: var(--background-secondary);
-  border: 1px solid var(--border);
+  background-color: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--radius);
   padding: 1.5rem;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--shadow-md);
   transition: all var(--transition-fast);
 }
 
 .episodeCard:hover {
-  border-color: var(--primary);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.episodeCard:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--border-color);
 }
 
 .epTop {
@@ -51,24 +59,27 @@
 }
 
 .seasonBadge {
-  font-size: 0.75rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
   font-weight: 800;
-  color: var(--primary-dark);
-  background-color: var(--primary-light);
+  color: var(--ink);
   padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-color);
 }
 
 .duration {
-  font-size: 0.75rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--foreground-muted);
+  color: var(--ink-muted);
 }
 
 .epTitle {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
   margin-bottom: 0.75rem;
 }
 
@@ -80,13 +91,14 @@
 }
 
 .topicTag {
-  font-size: 0.75rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
   font-weight: 700;
-  background-color: #ffffff;
-  color: #475569;
-  border: 1px solid var(--border);
+  background-color: var(--bg-subtle);
+  color: var(--ink);
+  border: 1px solid var(--border-color);
   padding: 0.2rem 0.5rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
 }
 
 .platformBadge {
@@ -103,28 +115,34 @@
 }
 
 .resourceCard {
-  background-color: var(--background-secondary);
-  border: 1px solid var(--border);
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--radius);
   padding: 1.5rem;
   display: flex;
   gap: 1.25rem;
   align-items: flex-start;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--shadow-md);
   transition: all var(--transition-fast);
 }
 
 .resourceCard:hover {
-  border-color: var(--primary);
-  transform: translateY(-2px);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.resourceCard:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--border-color);
 }
 
 .resIcon {
   font-size: 2rem;
-  background-color: var(--primary-light);
+  background-color: var(--bg-card);
   width: 52px;
   height: 52px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-xs);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,32 +150,40 @@
 }
 
 .resInfo h4 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
   margin-bottom: 0.35rem;
 }
 
 .resInfo p {
   font-size: 0.85rem;
-  color: var(--foreground-muted);
+  color: var(--ink);
   line-height: 1.5;
   margin-bottom: 0.75rem;
+  font-weight: 500;
 }
 
 .resourceLink {
+  font-family: var(--font-sans), sans-serif;
   font-size: 0.85rem;
-  font-weight: 800;
-  color: var(--primary);
+  font-weight: 700;
+  color: var(--ink);
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  transition: color var(--transition-fast);
+  background-color: var(--bg-card);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-xs);
+  border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-fast);
 }
 
 .resourceLink:hover {
-  color: var(--primary-hover);
-  text-decoration: underline;
+  background-color: var(--ink);
+  color: #ffffff;
 }
 
 @media (max-width: 840px) {

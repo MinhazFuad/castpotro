@@ -17,7 +17,7 @@ interface QuizQuestion {
 
 const quizQuestions: QuizQuestion[] = [
   {
-    question: "When launching a new global project, what excites you the most?",
+    question: "When launching a new global initiative, what excites you the most?",
     options: [
       { label: "Spreading the word, growing audience reach & viral campaigns", dept: 'Marketing', icon: '📢' },
       { label: "Building the team, interviewing members & nurturing culture", dept: 'HR', icon: '🤝' },
@@ -50,25 +50,25 @@ const deptDetails = {
     title: 'Marketing & Outreach Wing',
     icon: '📢',
     desc: 'You are a growth strategist and communicator! You thrive on audience engagement, social outreach, and cross-organizational partnerships.',
-    color: '#0ea5e9'
+    accent: 'var(--pastel-sky)'
   },
   HR: {
     title: 'Human Resources & Quality Assurance',
     icon: '🤝',
     desc: 'You are an empathetic leader and community builder! You excel at talent screening, team cohesion, and keeping our community safe and thriving.',
-    color: '#10b981'
+    accent: 'var(--pastel-sage)'
   },
   Content: {
     title: 'Content & Media Production',
     icon: '✍️',
     desc: 'You are a creative visionary and storyteller! You love scriptwriting, podcast directing, editorial research, and audio excellence.',
-    color: '#8b5cf6'
+    accent: 'var(--pastel-lavender)'
   },
   Event: {
     title: 'Event Management & Logistics',
     icon: '🎪',
     desc: 'You are an energetic orchestrator! You thrive on live broadcasting, Chatter Box facilitation, stage management, and tournament hosting.',
-    color: '#f59e0b'
+    accent: 'var(--pastel-butter)'
   }
 };
 
@@ -85,7 +85,6 @@ export default function DepartmentMatcher() {
     if (currentStep < quizQuestions.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Calculate top match
       let topDept: 'Marketing' | 'HR' | 'Content' | 'Event' = 'Content';
       let highest = -1;
       for (const [d, count] of Object.entries(updatedScores)) {
@@ -111,10 +110,10 @@ export default function DepartmentMatcher() {
       <div className="container">
         <div className={styles.matcherContainer}>
           <div className={styles.headerBlock}>
-            <span className="section-tag">Interactive Talent Matcher</span>
-            <h2 className="section-title">Which Castpotro Wing Fits Your Superpower?</h2>
+            <span className="section-tag">[ 04 / TALENT MATCHER ]</span>
+            <h2 className="section-title">Which Castpotro Wing Fits You?</h2>
             <p className="section-subtitle">
-              Answer 3 quick questions to discover your best department match before taking our formal assessment.
+              Answer 3 quick questions to discover your optimal operational department match.
             </p>
           </div>
 
@@ -128,7 +127,7 @@ export default function DepartmentMatcher() {
                 className={styles.quizCard}
               >
                 <div className={styles.quizProgress}>
-                  Question {currentStep + 1} of {quizQuestions.length}
+                  QUESTION 0{currentStep + 1} OF 0{quizQuestions.length} // TALENT RADAR
                 </div>
                 <h3 className={styles.quizQuestion}>
                   {quizQuestions[currentStep].question}
@@ -150,22 +149,23 @@ export default function DepartmentMatcher() {
             ) : (
               <motion.div 
                 key="result"
-                initial={{ scale: 0.9, opacity: 0 }}
+                initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 className={styles.resultCard}
+                style={{ backgroundColor: deptDetails[matchedDept].accent }}
               >
-                <div className={styles.resultBadge}>🎉 Your Optimal Match Found!</div>
+                <div className={styles.resultBadge}>[ OPTIMAL MATCH FOUND ]</div>
                 <div className={styles.resultIcon}>{deptDetails[matchedDept].icon}</div>
                 <h3 className={styles.resultDeptTitle}>{deptDetails[matchedDept].title}</h3>
                 <p className={styles.resultDeptDesc}>{deptDetails[matchedDept].desc}</p>
 
                 <div className={styles.resultActions}>
-                  <Link href="/test" className={styles.applyBtn}>
+                  <Link href="/test" className={styles.applyBtn} onClick={playPopSound}>
                     <span>Proceed to Aptitude Test for {matchedDept}</span>
                     <span>→</span>
                   </Link>
                   <button onClick={handleRestart} className={styles.retryBtn}>
-                    ↺ Retake Quiz
+                    ↺ Retake Talent Quiz
                   </button>
                 </div>
               </motion.div>

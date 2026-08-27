@@ -1,6 +1,7 @@
 .section {
   padding: 5rem 0;
-  background-color: #ffffff;
+  background-color: var(--bg-subtle);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .headerBlock {
@@ -14,64 +15,85 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 1.75rem;
 }
 
 .card {
-  background-color: #ffffff;
-  border: 1.5px solid var(--border);
+  background-color: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 2.25rem 1.75rem;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--shadow-md);
   transition: all var(--transition-normal);
   display: flex;
   flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
-  box-shadow: var(--card-shadow-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--border-color);
 }
 
 .cardTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .iconBox {
-  font-size: 2rem;
-  background-color: var(--primary-light);
-  width: 56px;
-  height: 56px;
+  font-size: 1.75rem;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-xs);
+}
+
+.badgeGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.indexTag {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--ink-muted);
 }
 
 .tagBadge {
-  font-size: 0.75rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
   font-weight: 800;
-  color: var(--primary-dark);
-  background-color: #faf5ff;
-  padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--primary-light);
+  color: var(--ink);
+  background-color: var(--bg-subtle);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-color);
 }
 
 .cardTitle {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--ink);
   margin-bottom: 0.75rem;
+  line-height: 1.2;
 }
 
 .cardDesc {
   font-size: 0.95rem;
-  color: var(--foreground-muted);
+  color: var(--ink-secondary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   flex-grow: 1;
@@ -81,7 +103,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  border-top: 1px solid var(--border);
+  border-top: 1.5px dashed var(--border-subtle);
   padding-top: 1.25rem;
 }
 
@@ -90,12 +112,12 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  font-weight: 700;
-  color: #334155;
+  font-weight: 600;
+  color: var(--ink);
 }
 
 .checkIcon {
-  color: var(--accent-emerald);
-  font-weight: 800;
+  color: var(--primary-dark);
+  font-weight: 900;
   font-size: 0.95rem;
 }

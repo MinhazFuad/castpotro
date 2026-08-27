@@ -49,6 +49,31 @@ export interface WritingPrompt {
   sampleOutline: string[];
 }
 
+
+export interface SpeakingWarmupQuestion {
+  id: string;
+  question: string;
+  field: 'fullName' | 'preferredName' | 'origin';
+}
+
+export const speakingWarmupQuestions: SpeakingWarmupQuestion[] = [
+  {
+    id: 'w_name',
+    question: "Good day. My name is Dr. Sarah Jenkins. Can you tell me your full name, please?",
+    field: 'fullName'
+  },
+  {
+    id: 'w_call',
+    question: "Thank you. And what can I call you during this interview?",
+    field: 'preferredName'
+  },
+  {
+    id: 'w_origin',
+    question: "Where do you come from?",
+    field: 'origin'
+  }
+];
+
 // SPEAKING MOCK TEST DATA
 export const speakingPart1: SpeakingPart1Question[] = [
   {

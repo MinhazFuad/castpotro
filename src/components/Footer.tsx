@@ -7,13 +7,16 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
         <div className={styles.brandCol}>
-          <Image
-            src="/logo.png"
-            alt="Castpotro Logo"
-            width={160}
-            height={55}
-            className={styles.footerLogo}
-          />
+          <div className={styles.brandHeader}>
+            <Image
+              src="/logo.png"
+              alt="Castpotro Logo"
+              width={140}
+              height={48}
+              className={styles.footerLogo}
+            />
+            <span className={styles.editionPill}>GLOBAL NETWORK</span>
+          </div>
           <p className={styles.brandDesc}>
             Castpotro is an international digital radio network and personal growth community empowering youth through podcasts, cultural exchange, and elite talent incubation.
           </p>
@@ -26,7 +29,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.linkCol}>
-          <h4 className={styles.colTitle}>Ecosystem</h4>
+          <h4 className={styles.colTitle}>// ECOSYSTEM</h4>
           <ul>
             <li><Link href="#about">About Castpotro</Link></li>
             <li><Link href="#ecosystem">Digital Radio Network</Link></li>
@@ -37,17 +40,18 @@ export default function Footer() {
         </div>
 
         <div className={styles.linkCol}>
-          <h4 className={styles.colTitle}>Leadership & Careers</h4>
+          <h4 className={styles.colTitle}>// IELTS & CAREERS</h4>
           <ul>
+            <li><Link href="/ielts">IELTS Diagnostic Hub</Link></li>
+            <li><Link href="/ielts/speaking">AI Voice Speaking</Link></li>
             <li><Link href="#team">Four-Tier Hierarchy</Link></li>
             <li><Link href="#careers">5-Step Hiring Roadmap</Link></li>
-            <li><Link href="/test">Aptitude & EQ Assessment</Link></li>
-            <li><Link href="#careers">Departmental Internships</Link></li>
+            <li><Link href="/test">Aptitude Portal</Link></li>
           </ul>
         </div>
 
         <div className={styles.linkCol}>
-          <h4 className={styles.colTitle}>Four Departments</h4>
+          <h4 className={styles.colTitle}>// 4 DEPARTMENTS</h4>
           <ul>
             <li><span>Marketing & Outreach</span></li>
             <li><span>HR & Quality Assurance</span></li>
@@ -59,7 +63,7 @@ export default function Footer() {
 
       <div className={styles.bottomBar}>
         <div className={`container ${styles.bottomContainer}`}>
-          <p>© {new Date().getFullYear()} Castpotro Network. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CASTPOTRO NETWORK. ALL RIGHTS RESERVED.</p>
           <div className={styles.bottomLinks}>
             <Link href="#">Privacy Policy</Link>
             <span>•</span>

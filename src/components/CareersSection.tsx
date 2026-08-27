@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { playPopSound } from '@/lib/sound';
 import styles from './CareersSection.module.css';
 
 const hiringSteps = [
@@ -10,21 +11,24 @@ const hiringSteps = [
     title: 'CV Shortlisting',
     badge: 'Initial Screening',
     desc: 'Candidates submit their resume and portfolio. Our HR and admin team reviews background, passion for community building, and creative achievements.',
-    icon: '📄'
+    icon: '📄',
+    accent: 'var(--pastel-butter)'
   },
   {
     step: '02',
     title: 'Team Selection',
     badge: 'Choose 1 of 4 Wings',
     desc: 'Candidates select their preferred operational focus from Marketing, HR & Quality, Content & Production, or Event Management based on their strengths.',
-    icon: '🎯'
+    icon: '🎯',
+    accent: 'var(--pastel-sky)'
   },
   {
     step: '03',
     title: 'Interview Round',
     badge: 'Dialogue & Culture Fit',
     desc: 'A conversational 1-on-1 interview with department leads and Insiders to explore motivations, communication style, and alignment with Castpotro values.',
-    icon: '💬'
+    icon: '💬',
+    accent: 'var(--pastel-rose)'
   },
   {
     step: '04',
@@ -32,14 +36,16 @@ const hiringSteps = [
     badge: 'Interactive Assessment',
     desc: 'Our online 20-question test evaluating Numerical, Verbal, Logical, and Spatial problem-solving alongside Emotional Intelligence and Work Personality traits.',
     icon: '🧠',
+    accent: 'var(--pastel-lavender)',
     hasAction: true
   },
   {
     step: '05',
-    title: 'Department Activity & Onboarding',
-    badge: 'Trial Task & Induction',
+    title: 'Department Activity & Induction',
+    badge: 'Trial Task & Onboarding',
     desc: 'A practical, real-world mini-challenge tailored to your selected department. Successful completion leads to formal induction as an active Castpotro Intern.',
-    icon: '🚀'
+    icon: '🚀',
+    accent: 'var(--pastel-sage)'
   }
 ];
 
@@ -48,10 +54,10 @@ export default function CareersSection() {
     <section id="careers" className={styles.section}>
       <div className="container">
         <div className={styles.headerBlock}>
-          <span className="section-tag">Talent Acquisition</span>
-          <h2 className="section-title">Join the Castpotro Team</h2>
+          <span className="section-tag">[ 05 / TALENT GATEWAY ]</span>
+          <h2 className="section-title">Our 5-Step Recruitment Roadmap</h2>
           <p className="section-subtitle">
-            We are looking for self-starters, creators, and leaders. Here is our transparent 5-step recruitment roadmap to join as an intern.
+            We are looking for self-starters, creators, and emerging leaders. Here is our transparent roadmap to join as an intern.
           </p>
         </div>
 
@@ -61,14 +67,14 @@ export default function CareersSection() {
             <motion.div 
               key={step.step}
               className={`${styles.stepCard} ${step.hasAction ? styles.activeStepCard : ''}`}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: idx * 0.1 }}
+              transition={{ duration: 0.25, delay: idx * 0.05 }}
             >
               <div className={styles.stepTop}>
-                <span className={styles.stepNum}>{step.step}</span>
-                <span className={styles.stepIcon}>{step.icon}</span>
+                <span className={styles.stepNum}>{step.step} //</span>
+                <span className={styles.stepIcon} style={{ backgroundColor: step.accent }}>{step.icon}</span>
               </div>
               <span className={styles.stepBadge}>{step.badge}</span>
               <h3 className={styles.stepTitle}>{step.title}</h3>
@@ -76,8 +82,8 @@ export default function CareersSection() {
               
               {step.hasAction && (
                 <div className={styles.stepActionWrapper}>
-                  <Link href="/test" className={styles.takeTestBtn}>
-                    <span>Take Aptitude Test Now</span>
+                  <Link href="/test" className={styles.takeTestBtn} onClick={playPopSound}>
+                    <span>Take Aptitude Test</span>
                     <span className={styles.arrowIcon}>→</span>
                   </Link>
                 </div>
@@ -89,17 +95,17 @@ export default function CareersSection() {
         {/* CTA BANNER */}
         <div className={styles.ctaBanner}>
           <div className={styles.ctaBannerContent}>
-            <span className={styles.bannerTag}>Step 4: Talent Assessment Live</span>
-            <h3 className={styles.bannerTitle}>Ready to prove your skills and join the network?</h3>
+            <span className={styles.bannerTag}>[ STEP 04 : APTITUDE PORTAL OPEN ]</span>
+            <h3 className={styles.bannerTitle}>Ready to Test Your Cognitive Reasoning & EQ?</h3>
             <p className={styles.bannerText}>
-              Take the 20-question timed aptitude and EQ assessment today. Instant evaluation, personality profiling, and automatic submission to our hiring leads.
+              Complete our automated 20-question cognitive and EQ assessment. Instant scoring, personality profiling, and automatic transmission to our hiring leads.
             </p>
             <div className={styles.bannerActions}>
-              <Link href="/test" className={styles.bannerBtn}>
-                Launch Aptitude Test
+              <Link href="/test" className={styles.bannerBtn} onClick={playPopSound}>
+                Launch Aptitude Test Now →
               </Link>
               <div className={styles.bannerNotice}>
-                ⏱ 20 Minutes • No Outside AI Allowed • Instant Trait Analysis
+                ⏱ 20 MINUTES • 1-MIN PER QUESTION • INSTANT PROFILE VERDICT
               </div>
             </div>
           </div>

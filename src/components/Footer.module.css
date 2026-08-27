@@ -1,8 +1,8 @@
 .footer {
-  background-color: #0f172a;
-  color: #94a3b8;
+  background-color: #18181b;
+  color: #a1a1aa;
   padding-top: 4.5rem;
-  border-top: 1px solid #1e293b;
+  border-top: 3px solid #000000;
 }
 
 .footerContainer {
@@ -17,18 +17,34 @@
   flex-direction: column;
 }
 
+.brandHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
 .footerLogo {
   width: auto;
-  max-width: 150px;
+  max-width: 130px;
   height: auto;
-  margin-bottom: 1.25rem;
   filter: brightness(0) invert(1);
+}
+
+.editionPill {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  background-color: var(--pastel-butter);
+  color: #121212;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
 }
 
 .brandDesc {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #94a3b8;
+  color: #a1a1aa;
   margin-bottom: 1.5rem;
 }
 
@@ -39,12 +55,14 @@
 }
 
 .socialBadge {
-  background-color: #1e293b;
-  color: #cbd5e1;
+  background-color: #27272a;
+  color: #ffffff;
+  font-family: var(--font-sans), sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-xs);
+  border: 1px solid #3f3f46;
 }
 
 .linkCol {
@@ -53,12 +71,12 @@
 }
 
 .colTitle {
-  font-size: 1rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85rem;
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 1.25rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .linkCol ul {
@@ -71,18 +89,20 @@
 
 .linkCol a, .linkCol span {
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: #a1a1aa;
   transition: color var(--transition-fast);
 }
 
 .linkCol a:hover {
   color: #ffffff;
+  text-decoration: underline;
 }
 
 .bottomBar {
-  border-top: 1px solid #1e293b;
+  border-top: 1px solid #27272a;
   padding: 1.5rem 0;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-family: var(--font-mono), monospace;
 }
 
 .bottomContainer {
@@ -100,8 +120,7 @@
 }
 
 .bottomLinks a {
-  color: #94a3b8;
-  transition: color var(--transition-fast);
+  color: #a1a1aa;
 }
 
 .bottomLinks a:hover {
@@ -119,7 +138,6 @@
   .footerContainer {
     grid-template-columns: 1fr;
   }
-  
   .bottomContainer {
     flex-direction: column;
     text-align: center;

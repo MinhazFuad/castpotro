@@ -1,6 +1,7 @@
 .section {
   padding: 5.5rem 0;
-  background-color: var(--background-secondary);
+  background-color: var(--bg-subtle);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .headerBlock {
@@ -19,11 +20,11 @@
 }
 
 .stepCard {
-  background-color: #ffffff;
-  border: 1px solid var(--border);
+  background-color: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 1.75rem 1.5rem;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -31,15 +32,18 @@
 }
 
 .stepCard:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary);
-  box-shadow: var(--card-shadow-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stepCard:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--border-color);
 }
 
 .activeStepCard {
-  border: 2px solid var(--primary);
-  background: linear-gradient(180deg, #ffffff 0%, #faf5ff 100%);
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+  background-color: var(--pastel-butter);
+  box-shadow: var(--shadow-lg);
 }
 
 .stepTop {
@@ -50,37 +54,41 @@
 }
 
 .stepNum {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary-dark);
+  font-family: var(--font-mono), monospace;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--ink);
 }
 
 .stepIcon {
-  font-size: 1.5rem;
-  background-color: var(--primary-light);
+  font-size: 1.4rem;
   padding: 0.35rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
+  border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-xs);
 }
 
 .stepBadge {
-  font-size: 0.72rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
   font-weight: 800;
-  color: var(--primary);
+  color: var(--ink);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: 0.5rem;
 }
 
 .stepTitle {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
   margin-bottom: 0.6rem;
 }
 
 .stepDesc {
   font-size: 0.85rem;
-  color: var(--foreground-muted);
+  color: var(--ink-secondary);
   line-height: 1.55;
   margin-bottom: 1.25rem;
   flex-grow: 1;
@@ -95,17 +103,27 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: var(--primary);
+  background-color: var(--ink);
   color: white;
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1rem;
   border-radius: var(--radius-sm);
+  font-family: var(--font-sans), sans-serif;
   font-size: 0.85rem;
-  font-weight: 800;
-  transition: background-color var(--transition-fast);
+  font-weight: 700;
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-fast);
 }
 
 .takeTestBtn:hover {
-  background-color: var(--primary-hover);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--primary-dark);
+}
+
+.takeTestBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0px 0px 0px var(--border-color);
 }
 
 .arrowIcon {
@@ -113,11 +131,12 @@
 }
 
 .ctaBanner {
-  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%);
+  background-color: #18181b;
+  border: var(--border-width) solid #000000;
   border-radius: var(--radius-lg);
-  padding: 3rem 2.5rem;
+  padding: 3.5rem 2.5rem;
   color: white;
-  box-shadow: 0 16px 36px rgba(109, 40, 217, 0.25);
+  box-shadow: var(--shadow-xl);
 }
 
 .ctaBannerContent {
@@ -130,30 +149,34 @@
 }
 
 .bannerTag {
+  font-family: var(--font-mono), monospace;
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  font-size: 0.8rem;
+  background-color: var(--pastel-butter);
+  color: var(--ink);
+  font-size: 0.75rem;
   font-weight: 800;
   padding: 0.35rem 0.85rem;
-  border-radius: var(--radius-full);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  border-radius: var(--radius-xs);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--border-color);
 }
 
 .bannerTitle {
-  font-size: clamp(1.75rem, 3.5vw, 2.4rem);
-  font-weight: 800;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.85rem, 3.5vw, 2.65rem);
+  font-weight: 700;
   color: white;
   margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .bannerText {
   font-size: 1.05rem;
-  color: #ede9fe;
-  line-height: 1.6;
+  color: #d4d4d8;
+  line-height: 1.65;
   margin-bottom: 2rem;
+  font-weight: 400;
 }
 
 .bannerActions {
@@ -164,24 +187,33 @@
 }
 
 .bannerBtn {
-  background-color: #ffffff;
-  color: #6d28d9;
+  background-color: var(--pastel-butter);
+  color: var(--ink);
   padding: 0.95rem 2.25rem;
-  border-radius: var(--radius);
-  font-size: 1.1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1rem;
   font-weight: 800;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ffffff;
+  box-shadow: 4px 4px 0px #ffffff;
   transition: all var(--transition-fast);
 }
 
 .bannerBtn:hover {
-  transform: translateY(-2px);
-  background-color: #faf5ff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #ffffff;
+  background-color: #ffffff;
+}
+
+.bannerBtn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #ffffff;
 }
 
 .bannerNotice {
-  font-size: 0.8rem;
-  color: #c4b5fd;
-  font-weight: 600;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  color: #a1a1aa;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }

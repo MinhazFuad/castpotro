@@ -1,13 +1,13 @@
 .main {
   min-height: 100vh;
-  background-color: var(--background-secondary);
+  background-color: var(--bg);
   display: flex;
   flex-direction: column;
 }
 
 .header {
-  background-color: #ffffff;
-  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-card);
+  border-bottom: 2px solid var(--border-color);
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -21,28 +21,46 @@
 }
 
 .backLink {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--foreground-muted);
+  font-family: var(--font-heading), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ink);
+  background-color: var(--bg);
+  border: var(--border-width) solid var(--border-color);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
 }
 
 .backLink:hover {
-  color: var(--primary);
+  background-color: var(--accent-yellow);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-md);
 }
 
 .brandTitle {
-  font-size: 0.95rem;
+  font-family: var(--font-heading), monospace;
+  font-size: 0.85rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--ink);
+  background-color: var(--accent-yellow);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-xs);
+  border: 1.5px solid var(--border-color);
+  box-shadow: 1.5px 1.5px 0px var(--border-color);
 }
 
 .timerPill {
+  font-family: var(--font-heading), monospace;
   font-size: 0.85rem;
   font-weight: 800;
-  color: var(--primary-dark);
-  background-color: var(--primary-light);
+  color: var(--ink);
+  background-color: var(--accent-sky);
   padding: 0.3rem 0.8rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-xs);
+  border: 1.5px solid var(--border-color);
+  box-shadow: 2px 2px 0px var(--border-color);
 }
 
 .editorLayout {
@@ -51,7 +69,7 @@
   gap: 2rem;
   padding: 2rem 1.5rem;
   flex: 1;
-  max-width: 1300px;
+  max-width: 1320px;
 }
 
 .promptPane {
@@ -67,78 +85,93 @@
 
 .tabBtn {
   flex: 1;
-  padding: 0.75rem;
-  background-color: #ffffff;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
+  padding: 0.85rem;
+  background-color: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading), sans-serif;
   font-size: 0.85rem;
   font-weight: 800;
-  color: var(--foreground-muted);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
 }
 
+.tabBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-md);
+}
+
 .tabActive {
-  background-color: var(--primary);
-  color: white !important;
-  border-color: var(--primary);
+  background-color: var(--accent-yellow);
+  box-shadow: var(--shadow-md);
 }
 
 .promptCard {
-  background-color: #ffffff;
-  border: 1.5px solid var(--border);
+  background-color: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 2rem;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--shadow-lg);
 }
 
 .taskTypeBadge {
+  font-family: var(--font-heading), monospace;
   font-size: 0.75rem;
   font-weight: 800;
-  color: var(--primary-dark);
-  background-color: var(--primary-light);
+  color: var(--ink);
+  background-color: var(--accent-sky);
   padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-xs);
+  border: 1.5px solid var(--border-color);
+  box-shadow: 1.5px 1.5px 0px var(--border-color);
   display: inline-block;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .promptTitle {
-  font-size: 1.1rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.15rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--ink);
   margin-bottom: 0.5rem;
 }
 
 .promptBody {
   font-size: 0.95rem;
-  line-height: 1.6;
-  color: #334155;
+  line-height: 1.65;
+  color: var(--ink);
+  font-weight: 500;
   margin-bottom: 1.5rem;
 }
 
 .outlineBox {
-  background-color: #faf5ff;
+  background-color: var(--bg-subtle);
+  border: 1.5px solid var(--border-color);
   border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
   margin-bottom: 1.25rem;
 }
 
 .outlineBox h4 {
+  font-family: var(--font-heading), sans-serif;
   font-size: 0.9rem;
-  color: #0f172a;
+  font-weight: 800;
+  color: var(--ink);
   margin-bottom: 0.5rem;
 }
 
 .outlineBox ul {
   padding-left: 1.25rem;
   font-size: 0.85rem;
-  color: #475569;
+  color: var(--ink-secondary);
   line-height: 1.6;
+  font-weight: 600;
 }
 
 .guidanceNotes {
   font-size: 0.8rem;
-  color: var(--foreground-muted);
+  color: var(--ink-muted);
   line-height: 1.4;
 }
 
@@ -149,13 +182,14 @@
 }
 
 .editorToolbar {
-  background-color: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background-color: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-sm);
   padding: 0.85rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: var(--shadow-sm);
 }
 
 .wordCounter {
@@ -163,39 +197,43 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  font-size: 0.85rem;
-  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .statusBadge {
+  font-family: var(--font-heading), monospace;
   font-size: 0.75rem;
   font-weight: 800;
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-color);
 }
 
 .badgeSuccess {
-  background-color: #ecfdf5;
-  color: #059669;
+  background-color: var(--accent-emerald);
+  color: var(--ink);
 }
 
 .badgeWarning {
-  background-color: #fffbeb;
-  color: #d97706;
+  background-color: var(--accent-yellow);
+  color: var(--ink);
 }
 
 .essayTextarea {
   width: 100%;
   padding: 1.25rem;
-  border: 1.5px solid var(--border);
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--radius-lg);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: #1e293b;
-  font-family: inherit;
+  color: var(--ink);
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 500;
   resize: vertical;
-  background-color: #ffffff;
-  box-shadow: var(--card-shadow);
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-lg);
 }
 
 .essayTextarea:focus {
@@ -206,12 +244,20 @@
 .evaluateBtn {
   background-color: var(--primary);
   color: white;
-  padding: 0.95rem;
-  border-radius: var(--radius);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading), sans-serif;
   font-size: 1.05rem;
-  font-weight: 800;
-  box-shadow: 0 4px 14px var(--primary-shadow);
+  font-weight: 900;
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-md);
   transition: all var(--transition-fast);
+}
+
+.evaluateBtn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+  background-color: var(--primary-hover);
 }
 
 .evaluateBtn:disabled {
@@ -224,31 +270,39 @@
 }
 
 .resultBanner {
-  background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
-  color: white;
+  background-color: var(--accent-yellow);
+  color: var(--ink);
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 2.25rem 2rem;
   text-align: center;
   margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-xl);
 }
 
 .bannerTag {
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-family: var(--font-heading), monospace;
+  font-size: 0.75rem;
+  font-weight: 900;
   text-transform: uppercase;
-  color: #fef3c7;
+  background-color: var(--ink);
+  color: #ffffff;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-xs);
 }
 
 .bandNum {
+  font-family: var(--font-heading), sans-serif;
   font-size: 3.5rem;
   font-weight: 900;
-  margin: 0.25rem 0;
+  margin: 0.35rem 0;
 }
 
 .verdictText {
   font-size: 0.95rem;
-  color: #fffbeb;
+  color: var(--ink);
   line-height: 1.5;
+  font-weight: 600;
 }
 
 .subGrid {
@@ -259,35 +313,39 @@
 }
 
 .subCard {
-  background-color: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background-color: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-sm);
   padding: 1rem;
   text-align: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .subCat {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--foreground-muted);
+  font-family: var(--font-heading), monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--ink-muted);
   margin-bottom: 0.2rem;
 }
 
 .subVal {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #d97706;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--ink);
 }
 
 .metaRow {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background-color: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-sm);
   padding: 1rem;
   margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .metaItem {
@@ -297,13 +355,17 @@
 }
 
 .metaItem span {
-  font-size: 0.75rem;
-  color: var(--foreground-muted);
+  font-family: var(--font-heading), monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--ink-muted);
 }
 
 .metaItem strong {
-  font-size: 1.1rem;
-  color: #0f172a;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--ink);
 }
 
 .actionRow {
@@ -318,23 +380,26 @@
   background-color: var(--primary);
   color: white;
   padding: 0.85rem 1.75rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading), sans-serif;
   font-size: 0.95rem;
   font-weight: 800;
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-md);
 }
 
 .editBtn {
-  background-color: #ffffff;
-  color: #0f172a;
+  background-color: var(--bg-card);
+  color: var(--ink);
   padding: 0.85rem 1.5rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading), sans-serif;
   font-size: 0.95rem;
-  font-weight: 700;
-  border: 1px solid var(--border);
+  font-weight: 800;
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 @media (max-width: 900px) {
-  .editorLayout {
-    grid-template-columns: 1fr;
-  }
+  .editorLayout { grid-template-columns: 1fr; }
 }

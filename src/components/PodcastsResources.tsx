@@ -2,29 +2,33 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { playPopSound } from '@/lib/sound';
 import styles from './PodcastsResources.module.css';
 
 const featuredEpisodes = [
   {
-    season: 'Fall Season',
+    season: 'Fall Edition',
     title: 'Navigating Burnout & Rebuilding Momentum',
     duration: '38 mins',
     tags: ['Mental Health', 'Productivity'],
-    platform: 'Spotify & YouTube'
+    platform: 'Spotify & YouTube',
+    accent: 'var(--pastel-butter)'
   },
   {
-    season: 'Summer Season',
+    season: 'Summer Edition',
     title: 'The Art of Fearless Public Speaking',
     duration: '42 mins',
     tags: ['Communication', 'Confidence'],
-    platform: 'Spotify & YouTube'
+    platform: 'Spotify & YouTube',
+    accent: 'var(--pastel-sky)'
   },
   {
-    season: 'Spring Season',
+    season: 'Spring Edition',
     title: 'Cultural Heritage in a Hyper-Connected World',
     duration: '45 mins',
-    tags: ['Culture', 'Global Perspectives'],
-    platform: 'Spotify & YouTube'
+    tags: ['Culture', 'Global Voices'],
+    platform: 'Spotify & YouTube',
+    accent: 'var(--pastel-sage)'
   }
 ];
 
@@ -33,10 +37,10 @@ export default function PodcastsResources() {
     <section id="podcasts" className={styles.section}>
       <div className="container">
         <div className={styles.headerBlock}>
-          <span className="section-tag">Media & Publications</span>
-          <h2 className="section-title">Podcasts & Community Resources</h2>
+          <span className="section-tag">[ 06 / MEDIA & HUBS ]</span>
+          <h2 className="section-title">Podcasts & Community Hubs</h2>
           <p className="section-subtitle">
-            Tune into our weekly broadcasts or connect directly with our international Discord hub.
+            Tune into our weekly broadcasts or connect directly with our international Discord network.
           </p>
         </div>
 
@@ -49,10 +53,10 @@ export default function PodcastsResources() {
                 <motion.div 
                   key={idx}
                   className={styles.episodeCard}
-                  whileHover={{ x: 4 }}
+                  whileHover={{ x: 3 }}
                 >
                   <div className={styles.epTop}>
-                    <span className={styles.seasonBadge}>{ep.season}</span>
+                    <span className={styles.seasonBadge} style={{ backgroundColor: ep.accent }}>{ep.season}</span>
                     <span className={styles.duration}>⏱ {ep.duration}</span>
                   </div>
                   <h4 className={styles.epTitle}>{ep.title}</h4>
@@ -69,9 +73,9 @@ export default function PodcastsResources() {
 
           {/* COMMUNITY & RESOURCES */}
           <div className={styles.resourceCol}>
-            <h3 className={styles.colHeading}>🌐 Community Hubs & Links</h3>
+            <h3 className={styles.colHeading}>🌐 Community Hubs</h3>
             
-            <div className={styles.resourceCard}>
+            <div className={styles.resourceCard} style={{ backgroundColor: 'var(--pastel-sky)' }}>
               <div className={styles.resIcon}>💬</div>
               <div className={styles.resInfo}>
                 <h4>Official Discord Server</h4>
@@ -81,35 +85,37 @@ export default function PodcastsResources() {
                   target="_blank" 
                   rel="noreferrer" 
                   className={styles.resourceLink}
+                  onClick={playPopSound}
                 >
                   Join Discord Community →
                 </a>
               </div>
             </div>
 
-            <div className={styles.resourceCard}>
+            <div className={styles.resourceCard} style={{ backgroundColor: 'var(--pastel-butter)' }}>
               <div className={styles.resIcon}>🎧</div>
               <div className={styles.resInfo}>
-                <h4>Spotify & Podcast Channels</h4>
+                <h4>Spotify Podcast Channels</h4>
                 <p>Stream every seasonal episode on demand with rich discussions and expert interviews.</p>
                 <a 
                   href="https://open.spotify.com" 
                   target="_blank" 
                   rel="noreferrer" 
                   className={styles.resourceLink}
+                  onClick={playPopSound}
                 >
                   Listen on Spotify →
                 </a>
               </div>
             </div>
 
-            <div className={styles.resourceCard}>
-              <div className={styles.resIcon}>📝</div>
+            <div className={styles.resourceCard} style={{ backgroundColor: 'var(--pastel-sage)' }}>
+              <div className={styles.resIcon}>🎯</div>
               <div className={styles.resInfo}>
-                <h4>Talent Aptitude System</h4>
-                <p>Take our automated 20-question cognitive reasoning and personality archetype test.</p>
-                <Link href="/test" className={styles.resourceLink}>
-                  Open Aptitude Engine →
+                <h4>Castpotro IELTS Suite</h4>
+                <p>Practice speaking with our AI voice examiner, test listening, and evaluate writing essays.</p>
+                <Link href="/ielts" className={styles.resourceLink} onClick={playPopSound}>
+                  Open IELTS Hub →
                 </Link>
               </div>
             </div>

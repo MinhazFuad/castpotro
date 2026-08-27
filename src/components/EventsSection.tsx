@@ -2,80 +2,97 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { playPopSound } from '@/lib/sound';
 import styles from './EventsSection.module.css';
 
 const events = [
   {
     id: 'chatter-box',
+    index: '01',
     badge: 'Fluency & Speaking',
     title: 'Chatter Box',
     subtitle: '1-Minute Impromptu Public Speaking',
     desc: 'Participants gather in a circular, encouraging group environment to speak for exactly 1 minute on an unannounced topic. Builds English fluency, quick thinking, and fearless confidence.',
     frequency: 'Bi-Weekly Sessions',
-    category: 'Communication'
+    category: 'Communication',
+    accent: 'var(--pastel-butter)'
   },
   {
     id: 'seasonal-podcasts',
-    badge: 'Seasonal Productions',
+    index: '02',
+    badge: 'Flagship Broadcasts',
     title: 'Seasonal Podcasts',
     subtitle: 'Spring, Summer & Fall Series',
-    desc: 'Flagship themed broadcast seasons covering in-depth subjects like mental health awareness, depression & burnout recovery, cultural heritage, habits, and youth philosophy.',
+    desc: 'Flagship themed broadcast seasons covering in-depth subjects like mental health awareness, depression recovery, cultural heritage, habits, and youth philosophy.',
     frequency: 'Quarterly Seasons',
-    category: 'Media'
+    category: 'Media',
+    accent: 'var(--pastel-sky)'
   },
   {
     id: 'creative-competitions',
-    badge: 'Monthly Showcases',
+    index: '03',
+    badge: 'Monthly Battles',
     title: 'Creative Competitions',
     subtitle: 'Art, Drama & Gaming Tournaments',
-    desc: 'A monthly spotlight on community talent where creators battle and showcase their skills across visual arts, dramatic performances, voice acting, and multiplayer e-sports.',
+    desc: 'A monthly spotlight on community talent where creators battle across visual arts, dramatic performances, voice acting, and multiplayer e-sports.',
     frequency: 'Monthly Contest',
-    category: 'Creativity'
+    category: 'Creativity',
+    accent: 'var(--pastel-rose)'
   },
   {
     id: 'culture-exchange',
-    badge: 'Global Perspective',
+    index: '04',
+    badge: 'Global Empathy',
     title: 'Culture Exchange Presentations',
     subtitle: 'Cross-Border Heritage & Discovery',
     desc: 'International members present cultural stories, traditions, cuisine, and local histories, breaking down geographic barriers and promoting global empathy.',
     frequency: 'Monthly Global Meet',
-    category: 'Community'
+    category: 'Community',
+    accent: 'var(--pastel-sage)'
   },
   {
     id: 'bookverse',
-    badge: 'Literature & Growth',
+    index: '05',
+    badge: 'Literature Club',
     title: 'Bookverse',
     subtitle: 'Collaborative Reading Circles',
-    desc: 'A dedicated reading club where members read celebrated novels, non-fiction literature, and self-help classics together, sharing chapter reviews and life reflections.',
+    desc: 'A dedicated reading club where members read celebrated novels, non-fiction literature, and self-help classics together, sharing chapter reviews and reflections.',
     frequency: 'Weekly Reading Club',
-    category: 'Education'
+    category: 'Education',
+    accent: 'var(--pastel-butter)'
   },
   {
     id: 'workshops',
+    index: '06',
     badge: 'Masterclasses',
-    title: 'Skill & Leadership Workshops',
+    title: 'Skill & Leadership Masterclasses',
     subtitle: 'Expert-Led Professional Sessions',
     desc: 'Interactive masterclasses covering leadership fundamentals, emotional resilience, strategic communication, audio production, and personal brand building.',
     frequency: 'Monthly Masterclasses',
-    category: 'Leadership'
+    category: 'Leadership',
+    accent: 'var(--pastel-lavender)'
   },
   {
     id: 'project-management',
-    badge: 'Operational Alignment',
+    index: '07',
+    badge: 'Staff Operations',
     title: 'Staff & Team PM Sprints',
-    subtitle: 'Agile Operations & Strategy',
+    subtitle: 'Agile Operations & Content Planning',
     desc: 'Structured coordination meetings for core team members, casters, admins, and departmental interns to align on sprints, event execution, and content quality.',
     frequency: 'Weekly Staff Meeting',
-    category: 'Operations'
+    category: 'Operations',
+    accent: 'var(--pastel-sky)'
   },
   {
     id: 'collaborations',
-    badge: 'Growth & Partnerships',
-    title: 'Global Outreach & Collabs',
-    subtitle: 'Organizational Partnerships',
-    desc: 'Partnering with universities, student clubs, non-profits, and international youth organizations to co-host events, share resources, and expand impact.',
+    index: '08',
+    badge: 'Global Outreach',
+    title: 'Organizational Collaborations',
+    subtitle: 'Youth Platform Partnerships',
+    desc: 'Partnering with universities, student clubs, non-profits, and international youth organizations to co-host events, share resources, and expand global impact.',
     frequency: 'Ongoing Initiatives',
-    category: 'Partnerships'
+    category: 'Partnerships',
+    accent: 'var(--pastel-sage)'
   }
 ];
 
@@ -91,17 +108,17 @@ export default function EventsSection() {
     <section id="events" className={styles.section}>
       <div className="container">
         <div className={styles.headerBlock}>
-          <span className="section-tag">Programs & Initiatives</span>
+          <span className="section-tag">[ 02 / INITIATIVES ]</span>
           <h2 className="section-title">Signature Community Events</h2>
           <p className="section-subtitle">
-            From speaking circles and artistic competitions to seasonal podcasts and reading clubs, discover how our community gathers to grow together.
+            From 1-minute speaking circles and artistic battles to seasonal podcasts and reading clubs, discover our ecosystem.
           </p>
 
           <div className={styles.filterPills}>
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setFilter(cat)}
+                onClick={() => { playPopSound(); setFilter(cat); }}
                 className={`${styles.filterBtn} ${filter === cat ? styles.filterBtnActive : ''}`}
               >
                 {cat}
@@ -118,12 +135,15 @@ export default function EventsSection() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
+              transition={{ duration: 0.25, delay: index * 0.04 }}
             >
               <div className={styles.cardHeader}>
-                <span className={styles.eventBadge}>{evt.badge}</span>
+                <span className={styles.eventBadge} style={{ backgroundColor: evt.accent }}>
+                  {evt.badge}
+                </span>
                 <span className={styles.frequencyTag}>⏱ {evt.frequency}</span>
               </div>
+              <div className={styles.indexNum}>{evt.index} //</div>
               <h3 className={styles.eventTitle}>{evt.title}</h3>
               <div className={styles.eventSubtitle}>{evt.subtitle}</div>
               <p className={styles.eventDesc}>{evt.desc}</p>

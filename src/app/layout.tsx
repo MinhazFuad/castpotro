@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Newsreader, JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
-const nunito = Nunito({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-nunito",
-  weight: ['400', '600', '700', '800', '900']
+  variable: "--font-serif",
+  style: ['normal', 'italic'],
+  weight: ['400', '500', '600', '700', '800']
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ['400', '500', '600', '700', '800']
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ['400', '500', '600', '700', '800']
 });
 
 export const metadata: Metadata = {
-  title: "Castpotro - Global Digital Radio, Youth Community & Growth Network",
-  description: "Castpotro is an international digital radio network and personal growth community empowering youth through podcasts, cultural exchange, Chatter Box speaking circles, and career incubation.",
-  keywords: ["Castpotro", "Digital Radio", "Podcasts", "Youth Community", "Chatter Box", "Bookverse", "Aptitude Assessment", "Internship Program"],
-  icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
-  },
+  title: "Castpotro — Editorial Soft Neo-Brutalist Digital Radio & IELTS Suite",
+  description: "Castpotro is an international digital radio network, youth community, and personal growth ecosystem.",
 };
 
 export default function RootLayout({
@@ -26,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito.variable}`}>
+      <body className={`${newsreader.variable} ${jetbrainsMono.variable} ${inter.variable}`}>
         {children}
       </body>
     </html>

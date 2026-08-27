@@ -9,6 +9,7 @@ import styles from './page.module.css';
 const modules = [
   {
     id: 'speaking',
+    index: '01',
     title: 'Speaking Module',
     subtitle: '3 Authentic IELTS Parts',
     icon: '🎙️',
@@ -16,11 +17,12 @@ const modules = [
     desc: 'Interactive 1-on-1 interview with an AI Voice Examiner. Covers Part 1 (Intro Qs), Part 2 (Cue Card with 1-min prep), and Part 3 (In-depth discussion) with real-time Speech-to-Text.',
     features: ['AI Voice Audio Examiner', 'Real-time Speech Recognition', 'Fluency & Lexical Analysis', 'Band Score 0-9.0 Report'],
     link: '/ielts/speaking',
-    badge: 'AI Powered',
-    color: '#8b5cf6'
+    badge: 'AI VOICE STT',
+    accent: 'var(--accent-rose)'
   },
   {
     id: 'listening',
+    index: '02',
     title: 'Listening Module',
     subtitle: 'Audio Dialogue & Comprehension',
     icon: '🎧',
@@ -28,11 +30,12 @@ const modules = [
     desc: 'Listen to campus dialogues and academic radio broadcasts. Answer multiple-choice, form-filling, and detail questions with live audio player and instant script review.',
     features: ['Real-time Audio Player', 'Instant Auto-Grading', 'Transcript Highlighting', 'Detail Accuracy Check'],
     link: '/ielts/listening',
-    badge: 'Audio Engine',
-    color: '#0ea5e9'
+    badge: 'NEURAL AUDIO',
+    accent: 'var(--accent-sky)'
   },
   {
     id: 'reading',
+    index: '03',
     title: 'Reading Module',
     subtitle: 'Academic Passage & Analysis',
     icon: '📖',
@@ -40,11 +43,12 @@ const modules = [
     desc: 'Read a curated academic passage on digital communications and culture. Solve True/False/Not Given, multiple-choice, and paragraph analysis questions.',
     features: ['Split-screen Reading Interface', 'True / False / Not Given', 'Reading Speed (WPM) Tracker', 'Detailed Answer Keys'],
     link: '/ielts/reading',
-    badge: 'Comprehension',
-    color: '#10b981'
+    badge: 'COMPREHENSION',
+    accent: 'var(--accent-emerald)'
   },
   {
     id: 'writing',
+    index: '04',
     title: 'Writing Module',
     subtitle: 'Task 1 & Task 2 Essay Editor',
     icon: '✍️',
@@ -52,8 +56,8 @@ const modules = [
     desc: 'Craft a formal letter/summary (Task 1, 150 words) or discursive opinion essay (Task 2, 250 words) with real-time word counting and automated IELTS band rubric evaluation.',
     features: ['Live Threshold Word Counter', 'Task Achievement Scoring', 'Coherence & Lexical Analysis', 'Grammatical Feedback'],
     link: '/ielts/writing',
-    badge: 'Smart Editor',
-    color: '#f59e0b'
+    badge: 'SMART RUBRIC',
+    accent: 'var(--accent-yellow)'
   }
 ];
 
@@ -68,7 +72,7 @@ export default function IeltsHub() {
           </Link>
           <div className={styles.brandTitle}>
             <Image src="/logo.png" alt="Logo" width={100} height={35} className={styles.headerLogo} />
-            <span className={styles.badgeIelts}>IELTS Prep & Diagnostic</span>
+            <span className={styles.badgeIelts}>[ IELTS AI SUITE ]</span>
           </div>
         </div>
       </header>
@@ -77,28 +81,32 @@ export default function IeltsHub() {
       <section className={styles.heroSection}>
         <div className="container">
           <div className={styles.heroContent}>
-            <span className={styles.tagPill}>🎯 Castpotro IELTS Assessment Suite</span>
+            <div className={styles.editionPill}>
+              <span>DIAGNOSTIC TEST CENTER</span>
+              <span>•</span>
+              <span>BAND 0 – 9.0</span>
+            </div>
             <h1 className={styles.title}>
-              Test Your IELTS Level with <span className={styles.gradientText}>AI Voice & Diagnostics</span>
+              CASTPOTRO <span className={styles.titleHighlight}>IELTS SUITE</span>
             </h1>
             <p className={styles.subtitle}>
-              Assess your English proficiency across all 4 official IELTS skills. Practice authentic 3-part speaking interviews with an AI voice examiner, test listening comprehension, and evaluate your writing essays.
+              Assess your English proficiency across all 4 official IELTS skills. Practice authentic 3-part speaking interviews with our AI voice examiner, test listening comprehension, and evaluate your writing essays.
             </p>
 
             <div className={styles.quickStats}>
               <div className={styles.qStat}>
-                <span className={styles.qNum}>4</span>
-                <span className={styles.qLabel}>Core Modules</span>
+                <span className={styles.qNum}>04</span>
+                <span className={styles.qLabel}>CORE MODULES</span>
               </div>
               <div className={styles.qDivider}></div>
               <div className={styles.qStat}>
                 <span className={styles.qNum}>Band 0-9</span>
-                <span className={styles.qLabel}>Automated Scoring</span>
+                <span className={styles.qLabel}>OFFICIAL RUBRICS</span>
               </div>
               <div className={styles.qDivider}></div>
               <div className={styles.qStat}>
                 <span className={styles.qNum}>Instant</span>
-                <span className={styles.qLabel}>AI Rubric Feedback</span>
+                <span className={styles.qLabel}>AI DIAGNOSTICS</span>
               </div>
             </div>
           </div>
@@ -109,9 +117,10 @@ export default function IeltsHub() {
       <section className={styles.modulesSection}>
         <div className="container">
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Select an IELTS Module to Begin</h2>
-            <p className={styles.sectionSubtitle}>
-              Take individual skill tests or practice them sequentially to get a full diagnostic profile.
+            <span className="section-tag">[ SELECT YOUR MODULE ]</span>
+            <h2 className="section-title">CHOOSE A SKILL TO PRACTICE</h2>
+            <p className="section-subtitle">
+              Take individual skill tests or practice them sequentially for a full diagnostic profile.
             </p>
           </div>
 
@@ -120,19 +129,21 @@ export default function IeltsHub() {
               <motion.div 
                 key={mod.id}
                 className={styles.moduleCard}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: idx * 0.1 }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, delay: idx * 0.08 }}
               >
                 <div className={styles.cardTop}>
-                  <span className={styles.cardIcon}>{mod.icon}</span>
+                  <div className={styles.cardIcon} style={{ backgroundColor: mod.accent }}>
+                    <span>{mod.icon}</span>
+                  </div>
                   <div className={styles.badgeRow}>
                     <span className={styles.modBadge}>{mod.badge}</span>
                     <span className={styles.durationBadge}>⏱ {mod.duration}</span>
                   </div>
                 </div>
 
+                <div className={styles.modIndex}>{mod.index} //</div>
                 <h3 className={styles.cardTitle}>{mod.title}</h3>
                 <div className={styles.cardSubtitle}>{mod.subtitle}</div>
                 <p className={styles.cardDesc}>{mod.desc}</p>
@@ -162,7 +173,7 @@ export default function IeltsHub() {
           <div className={styles.promoCard}>
             <div className={styles.promoIcon}>🎙️</div>
             <div className={styles.promoText}>
-              <h3>Want to improve your Speaking Band Score?</h3>
+              <h3>WANT TO MASTER SPEAKING FLUENCY?</h3>
               <p>
                 Join Castpotro's bi-weekly <strong>Chatter Box</strong> speaking circles on Discord! Practice 1-minute impromptu speaking with international learners and build conversational fluency.
               </p>

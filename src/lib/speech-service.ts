@@ -20,7 +20,6 @@ export const speakText = (
     utterance.pitch = 1.0;
 
     const voices = window.speechSynthesis.getVoices();
-    // Prefer natural British/Australian/US English examiner voice
     const preferredVoice = voices.find(v => 
       (v.lang.includes('en-GB') || v.lang.includes('en-AU') || v.lang.includes('en-US')) && 
       (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Daniel') || v.name.includes('Samantha') || v.name.includes('Karen'))
@@ -50,26 +49,25 @@ export const stopSpeaking = () => {
   }
 };
 
-// Speech Recognition (STT) - Candidate Recording & Live Transcription
-export interface SpeechRecognitionResultWrapper {
-  transcript: string;
-  isFinal: boolean;
-}
-
+// Continuous Speech-to-Text with Intelligent Pause & Resume Handling
 export class LiveSpeechTranscriber {
   private recognition: any = null;
   private isListening = false;
   private onResultCallback?: (result: string) => void;
+  private onSpeechActivityCallback?: (isVoicing: boolean) => void;
   private onErrorCallback?: (err: any) => void;
   private onEndCallback?: () => void;
-  private accumulatedTranscript = '';
+  private baseText = '';
+  private sessionFinalText = '';
 
   constructor(
     onResult?: (text: string) => void,
+    onSpeechActivity?: (isVoicing: boolean) => void,
     onError?: (err: any) => void,
     onEnd?: () => void
   ) {
     this.onResultCallback = onResult;
+    this.onSpeechActivityCallback = onSpeechActivity;
     this.onErrorCallback = onError;
     this.onEndCallback = onEnd;
 
@@ -81,30 +79,87 @@ export class LiveSpeechTranscriber {
         this.recognition.interimResults = true;
         this.recognition.lang = 'en-US';
 
-        this.recognition.onresult = (event: any) => {
-          let currentSessionText = '';
-          for (let i = event.resultIndex; i < event.results.length; ++i) {
-            currentSessionText += event.results[i][0].transcript;
+        this.recognition.onspeechstart = () => {
+          if (this.onSpeechActivityCallback) {
+            this.onSpeechActivityCallback(true);
           }
-          const fullText = (this.accumulatedTranscript + ' ' + currentSessionText).trim();
+        };
+
+        this.recognition.onspeechend = () => {
+          if (this.onSpeechActivityCallback) {
+            this.onSpeechActivityCallback(false);
+          }
+        };
+
+        this.recognition.onsoundstart = () => {
+          if (this.onSpeechActivityCallback) {
+            this.onSpeechActivityCallback(true);
+          }
+        };
+
+        this.recognition.onsoundend = () => {
+          if (this.onSpeechActivityCallback) {
+            this.onSpeechActivityCallback(false);
+          }
+        };
+
+        this.recognition.onresult = (event: any) => {
+          let currentFinal = '';
+          let currentInterim = '';
+          for (let i = 0; i < event.results.length; ++i) {
+            const transcript = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+              currentFinal += transcript + ' ';
+            } else {
+              currentInterim += transcript;
+            }
+          }
+          this.sessionFinalText = currentFinal;
+          const combined = [this.baseText, currentFinal, currentInterim]
+            .filter(Boolean)
+            .join(' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+
           if (this.onResultCallback) {
-            this.onResultCallback(fullText);
+            this.onResultCallback(combined);
           }
         };
 
         this.recognition.onerror = (event: any) => {
+          if (event.error === 'no-speech' || event.error === 'aborted') {
+            return;
+          }
+          console.warn('SpeechRecognition error:', event.error);
           if (this.onErrorCallback) this.onErrorCallback(event.error);
         };
 
         this.recognition.onend = () => {
+          if (this.onSpeechActivityCallback) {
+            this.onSpeechActivityCallback(false);
+          }
+
           if (this.isListening) {
-            // Auto restart if continuous recording is active
-            try {
-              this.recognition.start();
-            } catch (e) {
-              this.isListening = false;
-              if (this.onEndCallback) this.onEndCallback();
+            // Commit final session text into baseText before restarting
+            if (this.sessionFinalText) {
+              this.baseText = [this.baseText, this.sessionFinalText].filter(Boolean).join(' ').trim();
+              this.sessionFinalText = '';
             }
+
+            // Continuous listening through natural candidate pauses
+            setTimeout(() => {
+              if (this.isListening && this.recognition) {
+                try {
+                  this.recognition.start();
+                } catch (e) {
+                  setTimeout(() => {
+                    if (this.isListening && this.recognition) {
+                      try { this.recognition.start(); } catch (err) {}
+                    }
+                  }, 150);
+                }
+              }
+            }, 80);
           } else {
             if (this.onEndCallback) this.onEndCallback();
           }
@@ -113,20 +168,30 @@ export class LiveSpeechTranscriber {
     }
   }
 
-  public start(existingText = '') {
-    this.accumulatedTranscript = existingText;
+  public start(existingText?: string) {
+    if (existingText !== undefined) {
+      this.baseText = existingText.trim();
+    }
+    this.sessionFinalText = '';
     if (this.recognition && !this.isListening) {
       try {
         this.isListening = true;
         this.recognition.start();
       } catch (e) {
-        console.warn('Recognition start failed:', e);
+        console.warn('Recognition start error:', e);
       }
     }
   }
 
-  public stop() {
+  public stop(): string {
     this.isListening = false;
+    if (this.onSpeechActivityCallback) {
+      this.onSpeechActivityCallback(false);
+    }
+    if (this.sessionFinalText) {
+      this.baseText = [this.baseText, this.sessionFinalText].filter(Boolean).join(' ').trim();
+      this.sessionFinalText = '';
+    }
     if (this.recognition) {
       try {
         this.recognition.stop();
@@ -134,6 +199,18 @@ export class LiveSpeechTranscriber {
         // Ignore
       }
     }
+    return this.baseText;
+  }
+
+  public setBaseText(text: string) {
+    this.baseText = text.trim();
+    this.sessionFinalText = '';
+  }
+
+  public reset() {
+    this.stop();
+    this.baseText = '';
+    this.sessionFinalText = '';
   }
 
   public isSupported(): boolean {
