@@ -19,7 +19,7 @@ const services = [
     title: 'Collaborative Global Community',
     tag: 'Discord Ecosystem',
     accent: 'var(--pastel-sky)',
-    desc: 'An international Discord hub connecting passionate youth across 15+ countries for peer learning, mutual encouragement, and cultural discovery.',
+    desc: 'An international Discord hub connecting passionate youth across 150+ countries for peer learning, mutual encouragement, and cultural discovery.',
     highlights: ['24/7 interactive voice lounges', 'Multiplayer gaming tournaments', 'Moderated family-friendly space']
   },
   {

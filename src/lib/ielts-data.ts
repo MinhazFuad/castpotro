@@ -143,7 +143,7 @@ export const listeningSection = {
   duration: '1:43',
   transcript: `Examiner: Good morning, and welcome to the Castpotro International Network orientation. How may I assist you today?
 Student: Hi! I would like to learn more about the network and register for the student broadcaster program.
-Examiner: Wonderful! Castpotro is a global digital radio network and personal growth community connecting youth across more than fifteen countries. To get started, may I take down your full name and field of study?
+Examiner: Wonderful! Castpotro is a global digital radio network and personal growth community connecting youth across more than more than one hundred and fifty countries. To get started, may I take down your full name and field of study?
 Student: Yes, my name is Liam Henderson, and I am currently studying Media and Communications.
 Examiner: Great, Liam. We operate across four distinct departments: Marketing, Human Resources, Content Production, and Event Management. Which wing are you most interested in joining?
 Student: I am particularly passionate about Content Production and audio podcasting.

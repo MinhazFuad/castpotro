@@ -42,7 +42,7 @@ const testimonials = [
     accent: "var(--pastel-butter)"
   },
   {
-    quote: "Being an HR Intern at Castpotro gave me actual experience reviewing talent portfolios and moderating international events across 15+ countries.",
+    quote: "Being an HR Intern at Castpotro gave me actual experience reviewing talent portfolios and moderating international events across 150+ countries.",
     author: "Active Intern",
     wing: "HR & Quality Department",
     accent: "var(--pastel-sage)"

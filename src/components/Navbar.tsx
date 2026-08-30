@@ -32,25 +32,33 @@ export default function Navbar() {
           />
         </Link>
 
+        {/* CLEAN PRIMARY NAV LINKS (NO DUPLICATES) */}
         <nav className={`${styles.navLinks} ${mobileMenuOpen ? styles.navLinksOpen : ''}`}>
           <Link href="#about" onClick={() => { playPopSound(); setMobileMenuOpen(false); }}>About</Link>
           <Link href="#ecosystem" onClick={() => { playPopSound(); setMobileMenuOpen(false); }}>Ecosystem</Link>
           <Link href="#events" onClick={() => { playPopSound(); setMobileMenuOpen(false); }}>Events</Link>
           <Link href="#team" onClick={() => { playPopSound(); setMobileMenuOpen(false); }}>Team</Link>
-          <Link href="/ielts" onClick={() => { playPopSound(); setMobileMenuOpen(false); }} className={styles.ieltsNavLink}>
-            IELTS Diagnostic
-          </Link>
           <Link href="#careers" onClick={() => { playPopSound(); setMobileMenuOpen(false); }}>Careers</Link>
           <Link href="#podcasts" onClick={() => { playPopSound(); setMobileMenuOpen(false); }}>Podcasts</Link>
+          
+          {/* MOBILE ONLY QUICK ACTION BUTTONS */}
+          <Link 
+            href="/ielts" 
+            className={styles.mobileIeltsBtn}
+            onClick={() => { playPopSound(); setMobileMenuOpen(false); }}
+          >
+            ★ IELTS Diagnostic AI
+          </Link>
           <Link 
             href="/test" 
             className={styles.mobileCtaBtn}
             onClick={() => { playPopSound(); setMobileMenuOpen(false); }}
           >
-            Aptitude Assessment
+            Aptitude Assessment →
           </Link>
         </nav>
 
+        {/* DESKTOP RIGHT ACTION PILLS */}
         <div className={styles.navActions}>
           <Link href="/ielts" className={styles.ieltsBtn} onClick={playPopSound}>
             <span>IELTS Diagnostic</span>
